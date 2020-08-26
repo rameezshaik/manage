@@ -1,0 +1,13 @@
+FROM python:alpine3.10
+
+WORKDIR /app
+
+COPY . /app
+
+RUN pip install -r requirements.txt
+
+RUN apt-get install -y python-dateutil python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev python-setuptools libfuzzy-dev
+
+EXPOSE 5000
+
+CMD [ "python", "./manage.py" ]
